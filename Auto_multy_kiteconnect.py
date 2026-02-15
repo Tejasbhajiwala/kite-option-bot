@@ -12,6 +12,7 @@ TELEGRAM_TOKEN = "8537196036:AAFOfjj_LKp4IcC9bq7A9n3Udr36uxou7bE"
 API_KEY = "jvilhhoyu7a2n9qv"
 API_SECRET = "bbh5lr2557ktsqe0y9wxh69g16t7jw0a"
 ACCESS_TOKEN_FILE = "access_token.txt"
+token="lCuTEWdRG6duwLZWliXJyEMIFMt8wgd2"
 
 CAPITAL = 50000
 MAX_RISK_PERCENT = 3
@@ -55,14 +56,14 @@ def login():
 
     #with open(ACCESS_TOKEN_FILE,"r") as f:
 
-        token="lCuTEWdRG6duwLZWliXJyEMIFMt8wgd2"
+        #token="lCuTEWdRG6duwLZWliXJyEMIFMt8wgd2"
     #f.read().strip()
 
-    kite.set_access_token(token)
+    #kite.set_access_token(token)
 
-    kite.profile()
+    #kite.profile()
 
-    print("Kite login success")
+    #print("Kite login success")
 
 
 # ================= LOAD INSTRUMENTS =================
@@ -70,6 +71,9 @@ def login():
 def load_instruments():
 
     global df
+    kite.set_access_token(token)
+    kite.profile()
+    print("Kite login success")
 
     nfo = kite.instruments("NFO")
     mcx = kite.instruments("MCX")
@@ -403,7 +407,7 @@ def handle(update, context):
 
 def start():
 
-    login()
+    #login()
 
     load_instruments()
 
@@ -421,5 +425,6 @@ def start():
 
 
 start()
+
 
 
