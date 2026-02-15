@@ -49,7 +49,9 @@ INDEX_MAP = {
 MCX_LIST = ["CRUDEOIL","GOLD","SILVER"]
 
 kite = KiteConnect(api_key=API_KEY)
-
+kite.set_access_token(token)
+kite.profile()
+print("Kite login success")
 # ================= LOGIN =================
 
 def login():
@@ -71,15 +73,9 @@ def login():
 def load_instruments():
 
     global df
-    kite.set_access_token(token)
-    kite.profile()
-    print("Kite login success")
-
     nfo = kite.instruments("NFO")
     mcx = kite.instruments("MCX")
-
     df = pd.DataFrame(nfo + mcx)
-
     print("Instruments loaded:",len(df))
 
 
@@ -407,8 +403,6 @@ def handle(update, context):
 
 def start():
 
-    #login()
-
     load_instruments()
 
     updater=Updater(TELEGRAM_TOKEN,use_context=True)
@@ -425,6 +419,7 @@ def start():
 
 
 start()
+
 
 
 
