@@ -53,9 +53,10 @@ kite = KiteConnect(api_key=API_KEY)
 
 def login():
 
-    with open(ACCESS_TOKEN_FILE,"r") as f:
+    #with open(ACCESS_TOKEN_FILE,"r") as f:
 
-        token=f.read().strip()
+        token="lCuTEWdRG6duwLZWliXJyEMIFMt8wgd2"
+    #f.read().strip()
 
     kite.set_access_token(token)
 
@@ -420,4 +421,5 @@ def start():
 
 
 start()
+
 
