@@ -71,13 +71,16 @@ def login():
 # ================= LOAD INSTRUMENTS =================
 
 def load_instruments():
-
+    
     global df
+    
     nfo = kite.instruments("NFO")
+    
     mcx = kite.instruments("MCX")
+    
     df = pd.DataFrame(nfo + mcx)
+    
     print("Instruments loaded:",len(df))
-
 
 # ================= GET SPOT =================
 
@@ -419,6 +422,7 @@ def start():
 
 
 start()
+
 
 
 
